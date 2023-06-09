@@ -52,7 +52,6 @@ h3 {
   line-height: 2.25rem;
 }
 
-
 ul {
   list-style: none;
 }
@@ -304,15 +303,14 @@ input:checked + input ~ input:before {
 }
 /* || Stores */
 
-#stores{
-    height: 80vh;
-    margin-top: 9rem;
+#stores {
+  height: 100vh;
+  margin: 9rem 0 -25rem 0;
 }
 
 #stores h2 {
   color: var(--dark-slate-gray);
   margin-left: 8.6818181818rem;
-
 }
 
 .stores {
@@ -344,32 +342,75 @@ input:checked + input ~ input:before {
   justify-content: end;
 }
 
-.stores::before{
-    content: url(resources/pin.svg);
-    top: -3rem;
-    right: 2rem;
-    position: relative;
-    width: 0;
+.stores::before {
+  content: url(resources/pin.svg);
+  top: -3rem;
+  right: 2rem;
+  position: relative;
+  width: 0;
 }
 
-.hours{
-    background-color: var(--dark-slate-gray);
-    color: var(--ghost-white);
-    margin: 3rem 8.6818181818rem;
-    padding: 3rem 7.5rem;
-    border-radius: 10px;
+.hours {
+  background-color: var(--dark-slate-gray);
+  color: var(--ghost-white);
+  margin: 3rem 8.6818181818rem;
+  padding: 3rem 7.5rem;
+  border-radius: 10px;
+  position: relative;
 }
 
-.hours h3{
-    font-weight: 700;
-    margin-bottom: 1.625rem;
+.hours h3 {
+  font-weight: 700;
+  margin-bottom: 1.625rem;
 }
 
-.time{
-    display: flex;
-    gap: 1rem;
+.time {
+  display: flex;
+  gap: 1rem;
 }
 
 /* || About Us */
+
+.about {
+  padding: 12rem 8.6818181818rem 8rem;
+  background-color: var(--zomp);
+  color: var(--dark-slate-gray);
+}
+
+.about-image {
+  width: 50%;
+  border-radius: 1.25rem;
+}
+
+.about .content {
+  display: flex;
+  flex-direction: row;
+  color: var(--dark-slate-gray);
+  gap: 5rem;
+}
+
+blockquote {
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 4.5rem;
+  margin: 3rem 0;
+}
+
+.caption {
+  color: var(--mindaro);
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
+.about .extra {
+  position: relative;
+  top: 19rem;
+  left: 3rem;
+  width: 10%;
+}
+
+.thanks p:last-child{
+margin: 2rem 0;}
 
 /* || Footer */
