@@ -73,7 +73,7 @@ p {
   background: var(--mindaro);
   opacity: 0.8;
   left: 0;
-  bottom: .5rem;
+  bottom: 0;
   width: 100%;
   transform: skew(-33deg);
   height: 1rem;
@@ -160,9 +160,8 @@ nav a:focus {
   padding: 0.6rem 1.2rem;
 }
 
-.hero .underline::before{
-    bottom: 1.5rem;
- 
+.hero .underline::before {
+  bottom: 1.5rem;
 }
 
 /* || Features Products */
@@ -182,6 +181,7 @@ nav a:focus {
   height: 40rem;
   overflow: hidden;
   border-radius: 1.25rem;
+  z-index: 1;
 }
 
 .slider:before,
@@ -268,17 +268,50 @@ input:checked + input ~ input:before {
   color: var(--dark-slate-gray);
 }
 
-.products h2{
-    margin-bottom: 5rem;
-    width: max-content;
+.products h2 {
+  margin-bottom: 5rem;
+  width: max-content;
 }
 
 /* || Recipes */
 
 .recipes {
-    background-color: var(--eggplant);
-    margin-top: -9rem;
-    color: var(--ghost-white);
+  background-color: var(--eggplant);
+  margin-top: -9rem;
+  color: var(--ghost-white);
+  display: flex;
+  align-items: center;
+  gap: 6.25rem;
+  height: 80vh;
+}
+
+.recipes .content {
+  display: flex;
+  flex-direction: column;
+}
+
+.recipes h2 {
+  margin-bottom: 5rem;
+  width: max-content;
+}
+
+.recipe-image {
+}
+
+.recipe-image img {
+  width: 100%;
+  border-radius: 1.25rem 0 0 1.25rem;
+}
+
+.recipes .extra {
+  position: relative;
+  top: 19rem;
+  left: 3rem;
+}
+
+.recipe-image p {
+  font-size: 1rem;
+  font-weight: 500;
 }
 /* || Stores */
 
