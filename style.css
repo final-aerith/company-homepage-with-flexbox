@@ -42,6 +42,8 @@ h2 {
   font-size: 2rem;
   font-weight: 600;
   line-height: 3rem;
+  margin-bottom: 5rem;
+  width: max-content;
 }
 
 h3 {
@@ -49,6 +51,7 @@ h3 {
   font-weight: 500;
   line-height: 2.25rem;
 }
+
 
 ul {
   list-style: none;
@@ -248,7 +251,6 @@ input:not(checked):before {
 
 input:checked {
   transform: translateX(0);
-  pointer-event: none;
   z-index: 0;
 }
 
@@ -268,11 +270,6 @@ input:checked + input ~ input:before {
   color: var(--dark-slate-gray);
 }
 
-.products h2 {
-  margin-bottom: 5rem;
-  width: max-content;
-}
-
 /* || Recipes */
 
 .recipes {
@@ -288,14 +285,6 @@ input:checked + input ~ input:before {
 .recipes .content {
   display: flex;
   flex-direction: column;
-}
-
-.recipes h2 {
-  margin-bottom: 5rem;
-  width: max-content;
-}
-
-.recipe-image {
 }
 
 .recipe-image img {
@@ -314,6 +303,72 @@ input:checked + input ~ input:before {
   font-weight: 500;
 }
 /* || Stores */
+
+#stores{
+    height: 80vh;
+    margin-top: 9rem;
+}
+
+#stores h2 {
+  color: var(--dark-slate-gray);
+  margin-left: 8.6818181818rem;
+
+}
+
+.stores {
+  color: var(--dark-slate-gray);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8.6818181818rem;
+}
+
+.stores span {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 3rem;
+}
+
+.stores p {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3rem;
+}
+
+.store {
+  background-color: var(--mindaro);
+  padding: 8rem 2rem 1rem 2rem;
+  text-align: center;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.stores::before{
+    content: url(resources/pin.svg);
+    top: -3rem;
+    right: 2rem;
+    position: relative;
+    width: 0;
+}
+
+.hours{
+    background-color: var(--dark-slate-gray);
+    color: var(--ghost-white);
+    margin: 3rem 8.6818181818rem;
+    padding: 3rem 7.5rem;
+    border-radius: 10px;
+}
+
+.hours h3{
+    font-weight: 700;
+    margin-bottom: 1.625rem;
+}
+
+.time{
+    display: flex;
+    gap: 1rem;
+}
 
 /* || About Us */
 
