@@ -38,6 +38,12 @@ h1 {
   line-height: 9rem;
 }
 
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 3rem;
+}
+
 h3 {
   font-size: 1.5rem;
   font-weight: 500;
@@ -46,6 +52,12 @@ h3 {
 
 ul {
   list-style: none;
+}
+
+p {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2.25rem;
 }
 
 /* || Utilities */
@@ -61,7 +73,7 @@ ul {
   background: var(--mindaro);
   opacity: 0.8;
   left: 0;
-  bottom: 1.5rem;
+  bottom: .5rem;
   width: 100%;
   transform: skew(-33deg);
   height: 1rem;
@@ -148,10 +160,126 @@ nav a:focus {
   padding: 0.6rem 1.2rem;
 }
 
+.hero .underline::before{
+    bottom: 1.5rem;
+ 
+}
+
 /* || Features Products */
+
+.products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  margin-top: -9rem;
+}
+
+.slider {
+  position: relative;
+  display: block;
+  width: 28rem;
+  height: 40rem;
+  overflow: hidden;
+  border-radius: 1.25rem;
+}
+
+.slider:before,
+.slider:after {
+  content: "<";
+  font-size: 6rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  color: var(--ghost-white);
+  pointer-events: none;
+  height: 20%;
+  background: linear-gradient(360deg, var(--zomp), transparent);
+  opacity: 0.6;
+  width: 3rem;
+  padding: 60% 0.5rem;
+}
+
+.slider:after {
+  content: ">";
+  left: auto;
+  right: 0;
+}
+
+/* I haven't found a way for IE and Edge to let me style inputs that way */
+input {
+  appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transform: translateX(100%);
+  z-index: 1;
+}
+
+input:focus {
+  outline: none;
+}
+
+input:after {
+  content: " ";
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+input:not(checked):before {
+  content: "";
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+}
+
+input:checked {
+  transform: translateX(0);
+  pointer-event: none;
+  z-index: 0;
+}
+
+input:checked + input:before {
+  left: -3rem;
+}
+
+input:checked + input ~ input:before {
+  display: none;
+}
+
+.products .content {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 0 10%;
+  color: var(--dark-slate-gray);
+}
+
+.products h2{
+    margin-bottom: 5rem;
+    width: max-content;
+}
 
 /* || Recipes */
 
+.recipes {
+    background-color: var(--eggplant);
+    margin-top: -9rem;
+    color: var(--ghost-white);
+}
 /* || Stores */
 
 /* || About Us */
