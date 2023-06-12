@@ -15,6 +15,8 @@
   <body>
     <!-- Header -->
     <header>
+      <input type="checkbox" class="nav-toggler" id="nav-toggler" />
+      <label for="nav-toggler" class="nav-toggler-label"><span></span></label>
       <nav class="dektop">
         <ul>
           <li><a href="#products">Products</a></li>
@@ -28,6 +30,19 @@
           <li><a href="#about">About Us</a></li>
         </ul>
       </nav>
+
+      <!-- <nav class="mobile">
+        <ul>
+          <li>
+            <a href="index.html"
+              ><img class="logo" src="resources/logo.svg" alt="Logo"
+            /></a>
+          </li>
+          <li>
+            <a href="index.html"><img src="resources/bars-3.svg" /></a>
+          </li>
+        </ul>
+      </nav> -->
     </header>
 
     <!-- Hero Section -->
@@ -152,41 +167,45 @@
     <!-- Stores Section -->
     <section id="stores">
       <h2 class="underline">Our Stores</h2>
-      <div class="stores">
-        <div class="store">
-          <span>Cityville</span>
-          <p>Downtown</p>
+      <div class="mobile-stores">
+        <div class="stores">
+          <div class="store">
+            <span>Cityville</span>
+            <p>Downtown</p>
+          </div>
+          <div class="store">
+            <p>Greenfield</p>
+          </div>
+          <div class="store">
+            <span>Riverside</span>
+            <p>Rivertown</p>
+          </div>
+          <div class="store">
+            <p>Sunnyville</p>
+          </div>
+          <div class="store">
+            <p>Oakwood</p>
+          </div>
+          <div class="store">
+            <p>Hillcrest</p>
+          </div>
         </div>
-        <div class="store">
-          <p>Greenfield</p>
-        </div>
-        <div class="store">
-          <span>Riverside</span>
-          <p>Rivertown</p>
-        </div>
-        <div class="store">
-          <p>Sunnyville</p>
-        </div>
-        <div class="store">
-          <p>Oakwood</p>
-        </div>
-        <div class="store">
-          <p>Hillcrest</p>
-        </div>
-      </div>
-      <div class="hours">
-        <h3>OPEN HOURS:</h3>
-        <div class="time">
-          <p>Monday to Friday:</p>
-          <p>8:00 AM - 9:00 PM</p>
-        </div>
-        <div class="time">
-          <p>Saturday:</p>
-          <p>9:00 AM - 8:00 PM</p>
-        </div>
-        <div class="time">
-          <p>Sunday:</p>
-          <p>10:00 AM - 6:00 PM</p>
+        <div class="hours">
+          <h3>OPEN HOURS:</h3>
+          <div class="time">
+            <div>
+              <p>Monday to Friday:</p>
+              <p>8:00 AM - 9:00 PM</p>
+            </div>
+            <div>
+              <p>Saturday:</p>
+              <p>9:00 AM - 8:00 PM</p>
+            </div>
+            <div>
+              <p>Sunday:</p>
+              <p>10:00 AM - 6:00 PM</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -233,8 +252,13 @@
 
     <!-- Footer -->
     <footer>
-      <p>©️ 2023 FreshMart</p>
+      <p>&copy; 2023 FreshMart</p>
       <p>For learning purposes only</p>
     </footer>
+    <div class="scroll-container">
+      <a href="#top"
+        ><div class="scroll"><img src="resources/up.svg" /></div
+      ></a>
+    </div>
   </body>
 </html>

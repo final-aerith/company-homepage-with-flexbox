@@ -15,6 +15,7 @@
 html {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 /* || General styles */
@@ -22,14 +23,7 @@ html {
 body {
   font-weight: 300;
   background-color: var(--ghost-white);
-}
-
-header {
-  background-color: var(--zomp);
-  height: 6rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
 }
 
 h1 {
@@ -91,12 +85,23 @@ p {
 
 /* || Header and Main Navigation */
 
+header {
+  background-color: var(--zomp);
+  padding: 1rem 0;
+}
+
+.dektop {
+  padding: 0 3rem;
+}
+
+.mobile {
+  display: none;
+}
+
 nav ul {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-  gap: 6.25rem;
+  justify-content: space-evenly;
 }
 
 nav a {
@@ -107,12 +112,41 @@ nav a {
 }
 
 nav a:hover,
-nav a:focus {
+nav a:focus,
+nav a:active {
   color: var(--dark-slate-gray);
+}
+
+.nav-toggler-label {
+  display: none;
 }
 
 .logo {
   height: 4rem;
+}
+
+.scroll-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+.scroll-container:before {
+  content: "";
+  display: block;
+  height: 120vh;
+  pointer-events: none;
+}
+
+.scroll-container div {
+  position: sticky;
+  top: 87vh;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: var(--zomp);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem 0 0 0.5rem;
 }
 
 /* || Hero */
@@ -297,6 +331,9 @@ input:checked + input ~ input:before {
   left: 3rem;
 }
 
+.recipes .underline::before {
+  background: var(--zomp);
+}
 .recipe-image p {
   font-size: 1rem;
   font-weight: 500;
@@ -305,7 +342,19 @@ input:checked + input ~ input:before {
 
 #stores {
   height: 100vh;
-  margin: 9rem 0 -25rem 0;
+  margin-bottom: -17rem;
+}
+
+#stores::before {
+  content: "";
+  background-image: url(resources/pin.svg);
+  display: block;
+  top: 10rem;
+  right: -7rem;
+  position: relative;
+  height: 5rem;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #stores h2 {
@@ -342,14 +391,6 @@ input:checked + input ~ input:before {
   justify-content: end;
 }
 
-.stores::before {
-  content: url(resources/pin.svg);
-  top: -3rem;
-  right: 2rem;
-  position: relative;
-  width: 0;
-}
-
 .hours {
   background-color: var(--dark-slate-gray);
   color: var(--ghost-white);
@@ -366,13 +407,13 @@ input:checked + input ~ input:before {
 
 .time {
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
 }
 
 /* || About Us */
 
 .about {
-  padding: 12rem 8.6818181818rem 8rem;
+  padding: 12rem 8.6818181818rem 3rem;
   background-color: var(--zomp);
   color: var(--dark-slate-gray);
 }
@@ -384,16 +425,20 @@ input:checked + input ~ input:before {
 
 .about .content {
   display: flex;
-  flex-direction: row;
+  align-items: center;
   color: var(--dark-slate-gray);
   gap: 5rem;
+}
+
+.about .content div {
+  max-width: 40%;
 }
 
 blockquote {
   font-weight: 700;
   font-size: 3rem;
   line-height: 4.5rem;
-  margin: 3rem 0;
+  margin: 9rem 0 4rem;
 }
 
 .caption {
@@ -410,7 +455,281 @@ blockquote {
   width: 10%;
 }
 
-.thanks p:last-child{
-margin: 2rem 0;}
+.thanks p:last-child {
+  margin: 2rem 0;
+}
 
 /* || Footer */
+
+footer {
+  background-color: var(--dark-slate-gray);
+  color: var(--ghost-white);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 8rem;
+}
+
+footer p {
+  font-size: 1rem;
+}
+
+/* || Media Queries */
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+}
+
+/* Small devices */
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    height: auto;
+    padding: 2rem;
+  }
+
+  .hero h3 {
+    margin: 2rem 0;
+  }
+
+  .hero .underline::before {
+    bottom: 0.3rem;
+  }
+
+  .underline::before {
+    height: 0.7rem;
+  }
+
+  .hero-images {
+    width: 100%;
+  }
+
+  .hero-images li:nth-of-type(2) img:first-child {
+    border-radius: 0 1.25rem 0 0;
+  }
+
+  .hero-images li:nth-of-type(3) img:first-child {
+    border-radius: 0 0 1.25rem 0;
+  }
+
+  .hero li:last-child {
+    font-size: 0.75rem;
+  }
+
+  .products {
+    height: auto;
+    flex-direction: column-reverse;
+    margin-top: 2rem;
+    padding: 2rem;
+    gap: 1rem;
+  }
+
+  .products .content {
+    width: 100%;
+  }
+
+  .slider {
+    width: 100%;
+    height: 29rem;
+  }
+
+  .recipes {
+    flex-direction: column;
+    gap: 2rem;
+    height: auto;
+    padding: 2rem;
+  }
+
+  .recipes .content {
+    flex-direction: column;
+    margin-top: 9rem;
+  }
+
+  .recipe-image img {
+    border-radius: 1.25rem;
+  }
+
+  .recipes .extra {
+    display: none;
+  }
+
+  #stores {
+    height: auto;
+    margin-bottom: -10rem;
+  }
+
+  #stores h2 {
+    margin-left: 2rem;
+  }
+
+  #stores::before {
+    top: 31rem;
+    right: -0.5rem;
+    height: 6rem;
+  }
+
+  .mobile-stores {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .stores {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+    margin: 3rem 0;
+  }
+
+  .stores span {
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+  }
+
+  .stores p {
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+  }
+
+  .store {
+    padding: 5rem 2rem 1rem 2rem;
+  }
+
+  .hours {
+    margin: 0 2rem;
+    padding: 3.125rem;
+  }
+
+  .time {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .about {
+    padding: 8rem 2rem 2rem;
+  }
+  
+  .about-image {
+    width: 100%;
+  }
+  
+  .about .content {
+    flex-direction: column-reverse;
+    gap: 0; 
+  }
+  
+  .about .content div {
+    max-width: 100%;
+    padding: 2rem;
+  }
+  
+  blockquote {
+    font-size: 2.125rem;
+    line-height: 3.1875rem;
+    margin: 3rem 0;
+  }
+  
+  .caption {
+    font-size: 1.5rem;
+    line-height: 2.25rem; 
+  }
+  
+  footer {
+    flex-direction: column;
+    padding: 2rem;
+  }
+  
+
+
+  /* nav {
+    position: absolute;
+    top: 90%;
+    right: 0;
+    transform: scale(1, 0);
+    transform-origin: top;
+  }
+
+  nav ul {
+    all: unset;
+  }
+
+  .nav-toggler {
+    display: none;
+  }
+
+  .nav-toggler-label {
+    position: absolute;
+    top: 2rem;
+    right: 2.2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-toggler-label span,
+  .nav-toggler-label span::before,
+  .nav-toggler-label span::after {
+    display: block;
+    background: var(--ghost-white);
+    width: 1rem;
+    height: 2px;
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .nav-toggler-label span::before,
+  .nav-toggler-label span::after {
+    content: "";
+    position: absolute;
+  }
+
+  .nav-toggler-label span::before {
+    bottom: 0.4rem;
+  }
+
+  .nav-toggler-label span::after {
+    top: 0.4rem;
+  }
+
+  .nav-toggler:checked ~ nav {
+    transform: scale(1, 1);
+    transition: transform 100ms ease;
+  }
+
+  .nav-toggler:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 100ms ease 150ms;
+  }
+
+  .nav-toggler:checked ~ .nav-toggler-label span::before {
+    display: none;
+  }
+
+  .nav-toggler:checked ~ .nav-toggler-label span::after {
+    transform: translate(0, -0.4rem) rotate(90deg);
+  }
+
+  .nav-toggler:checked ~ .nav-toggler-label span {
+    transform: rotate(135deg);
+  } */
+}
