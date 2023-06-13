@@ -89,6 +89,10 @@ p {
 header {
   background-color: var(--zomp);
   padding: 1rem 0;
+  position: fixed;
+  z-index: 10;
+  width: 100vw;
+  height: 4rem;
 }
 
 .dektop {
@@ -99,10 +103,17 @@ header {
   display: none;
 }
 
-nav ul {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+/* NAVIGATION START */
+
+nav {
+  position: absolute;
+  top: 0;
+  transform: scale(1, 0);
+  transform-origin: top;
+  width: 100vw;
+  padding: 3rem;
+  background-color: var(--zomp);
+  box-shadow: 1px 1px var(--mindaro);
 }
 
 nav a {
@@ -110,6 +121,7 @@ nav a {
   color: var(--ghost-white);
   font-weight: 500;
   font-size: 1.5rem;
+  opacity: 0;
 }
 
 nav a:hover,
@@ -118,12 +130,76 @@ nav a:active {
   color: var(--dark-slate-gray);
 }
 
-.nav-toggler-label {
+nav li {
+  margin: 1rem 0;
+}
+
+.nav-toggler {
   display: none;
 }
 
+.nav-toggler-label {
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+  display: flex;
+  margin-right: 1.5rem;
+  align-items: center;
+  height: 3rem;
+  z-index: 20;
+}
+
+.nav-toggler-label span,
+.nav-toggler-label span::before,
+.nav-toggler-label span::after {
+  display: block;
+  background: var(--ghost-white);
+  width: 1rem;
+  height: 2px;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggler-label span::before,
+.nav-toggler-label span::after {
+  content: "";
+  position: absolute;
+}
+
+.nav-toggler-label span::before {
+  bottom: 0.4rem;
+}
+
+.nav-toggler-label span::after {
+  top: 0.4rem;
+}
+
+.nav-toggler:checked ~ nav {
+  transform: scale(1, 1);
+  transition: transform 100ms ease;
+}
+
+.nav-toggler:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 100ms ease 150ms;
+}
+
+.nav-toggler:checked ~ .nav-toggler-label span::before {
+  display: none;
+}
+
+.nav-toggler:checked ~ .nav-toggler-label span::after {
+  transform: translate(0, -0.4rem) rotate(90deg);
+}
+
+.nav-toggler:checked ~ .nav-toggler-label span {
+  transform: rotate(135deg);
+}
+/* NAVIGATION END */
+
 .logo {
-  height: 4rem;
+  height: 2rem;
+  padding-left: 1rem;
 }
 
 .scroll-container {
@@ -131,6 +207,7 @@ nav a:active {
   top: 0;
   right: 0;
   height: 100%;
+  z-index: 30;
 }
 
 .scroll-container:before {
@@ -158,7 +235,7 @@ nav a:active {
   display: flex;
   flex-direction: column;
   height: auto;
-  padding: 2rem;
+  padding: 5rem 2rem 2rem;
 }
 
 .hero-images {
@@ -261,7 +338,7 @@ nav a:active {
 }
 
 /* I haven't found a way for IE and Edge to let me style inputs that way */
-input {
+.slider-input {
   appearance: none;
   -ms-appearance: none;
   -webkit-appearance: none;
@@ -278,18 +355,18 @@ input {
   z-index: 1;
 }
 
-input:focus {
+.slider-input:focus {
   outline: none;
 }
 
-input:after {
+.slider-input:after {
   content: " ";
   position: absolute;
   top: 1rem;
   left: 1rem;
 }
 
-input:not(checked):before {
+.slider-input:not(checked):before {
   content: "";
   position: absolute;
   width: 25%;
@@ -298,16 +375,16 @@ input:not(checked):before {
   left: -100%;
 }
 
-input:checked {
+.slider-input:checked {
   transform: translateX(0);
   z-index: 0;
 }
 
-input:checked + input:before {
+.slider-input:checked + .slider-input:before {
   left: -3rem;
 }
 
-input:checked + input ~ input:before {
+.slider-input:checked + .slider-input ~ .slider-input:before {
   display: none;
 }
 
@@ -511,79 +588,10 @@ footer p {
 /* Small devices */
 
 @media screen and (max-width: 480px) {
-  /* nav {
-    position: absolute;
-    top: 90%;
-    right: 0;
-    transform: scale(1, 0);
-    transform-origin: top;
-  }
-
-  nav ul {
-    all: unset;
-  }
-
-  .nav-toggler {
-    display: none;
-  }
-
-  .nav-toggler-label {
-    position: absolute;
-    top: 2rem;
-    right: 2.2rem;
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-toggler-label span,
-  .nav-toggler-label span::before,
-  .nav-toggler-label span::after {
-    display: block;
-    background: var(--ghost-white);
-    width: 1rem;
-    height: 2px;
-    border-radius: 2px;
-    position: relative;
-  }
-
-  .nav-toggler-label span::before,
-  .nav-toggler-label span::after {
-    content: "";
-    position: absolute;
-  }
-
-  .nav-toggler-label span::before {
-    bottom: 0.4rem;
-  }
-
-  .nav-toggler-label span::after {
-    top: 0.4rem;
-  }
-
-  .nav-toggler:checked ~ nav {
-    transform: scale(1, 1);
-    transition: transform 100ms ease;
-  }
-
-  .nav-toggler:checked ~ nav a {
-    opacity: 1;
-    transition: opacity 100ms ease 150ms;
-  }
-
-  .nav-toggler:checked ~ .nav-toggler-label span::before {
-    display: none;
-  }
-
-  .nav-toggler:checked ~ .nav-toggler-label span::after {
-    transform: translate(0, -0.4rem) rotate(90deg);
-  }
-
-  .nav-toggler:checked ~ .nav-toggler-label span {
-    transform: rotate(135deg);
-  } */
 }
 
-@media screen and (min-width: 768px) {
+/* Large devices (laptops/desktops, 992px and up) */
+@media screen and (min-width: 992px) {
   h1 {
     font-size: 6.25rem;
     line-height: 9rem;
@@ -604,6 +612,36 @@ footer p {
   p {
     font-size: 1.5rem;
     line-height: 2.25rem;
+  }
+
+  nav {
+    all: unset;
+  }
+
+  header {
+position: unset;  }
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .nav-toggler-label {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
+  }
+  .logo {
+    height: 3rem;
+  }
+
+  nav a {
+    opacity: 1;
   }
 
   .hero {
