@@ -90,7 +90,7 @@ header {
   background-color: var(--zomp);
   padding: 1rem 0;
   position: fixed;
-  z-index: 10;
+  z-index: 3;
   width: 100vw;
   height: 4rem;
 }
@@ -207,7 +207,7 @@ nav li {
   top: 0;
   right: 0;
   height: 100%;
-  z-index: 30;
+  z-index: 2;
 }
 
 .scroll-container:before {
