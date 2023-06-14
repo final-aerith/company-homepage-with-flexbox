@@ -309,7 +309,7 @@ nav li {
   width: 100%;
   height: 29rem;
   overflow: hidden;
-  border-radius: 10vh;
+  border-radius: 30px
   z-index: 1;
 }
 
